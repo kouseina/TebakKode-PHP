@@ -72,7 +72,7 @@ class Webhook extends Controller
         $httpClient = new CurlHTTPClient(getenv('CHANNEL_ACCESS_TOKEN'));
         $this->bot  = new LINEBot($httpClient, ['channelSecret' => getenv('CHANNEL_SECRET')]);
     }
-
+}
     public function __invoke()
     {
         // get request
@@ -255,4 +255,3 @@ class Webhook extends Controller
             $this->userGateway->setUserProgress($this->user['user_id'], 0);
         }
     }
-}
