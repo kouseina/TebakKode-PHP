@@ -19,4 +19,4 @@ $router->get('/key', function () {
     return \Illuminate\Support\Str::random(32);
 });
 
-$router->post('/webhook', 'app/Http/Webhook');
+$router->post('/webhook', 'app/Http/Webhook/Webhook.php');
