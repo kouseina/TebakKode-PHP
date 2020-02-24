@@ -74,16 +74,17 @@ class Webhook extends Controller
     }
 
     public function __invoke()
-{
-    // get request
-    $body = $this->request->all();
- 
-    // debuging data
-    $this->logger->debug('Body', $body);
- 
-    // save log
-    $signature = $this->request->server('HTTP_X_LINE_SIGNATURE') ?: '-';
-    $this->logGateway->saveLog($signature, json_encode($body, true));
- 
-    return $this->handleEvents();
-}
+    {
+        // get request
+        $body = $this->request->all();
+     
+        // debuging data
+        $this->logger->debug('Body', $body);
+     
+        // save log
+        $signature = $this->request->server('HTTP_X_LINE_SIGNATURE') ?: '-';
+        $this->logGateway->saveLog($signature, json_encode($body, true));
+     
+        return $this->handleEvents();
+    }   
+}    
